@@ -18,8 +18,8 @@ const joinRoom = (socket, username, room) => {
     socket.username = username;
 };
 
-const leaveRoom = (socket) => {
-    const room = socket.room;
+const leaveRoom = (socket, room) => {
+
     if (room && rooms[room]) {
         rooms[room] = rooms[room].filter(user => user.id !== socket.id);
         if (rooms[room].length === 0) delete rooms[room];
